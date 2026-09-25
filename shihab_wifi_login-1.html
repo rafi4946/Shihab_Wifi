@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHIHAB WIFI - Login</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f5f7;color:#222}
+.container{max-width:430px;margin:auto;min-height:100vh;padding:20px 14px}
+.card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 5px 20px #0001}
+h1{text-align:center;margin:5px 0;color:#e2136e}
+.speed{text-align:center;color:#555;margin-bottom:18px}
+.bkash{background:#fff0f6;border:1px solid #f5a4c5;border-radius:12px;padding:14px;text-align:center;margin-bottom:18px}
+.bkash strong{font-size:20px;color:#e2136e}
+.packages{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.package{border:1px solid #ddd;border-radius:12px;padding:13px;text-align:center;cursor:pointer}
+.package:hover{border-color:#e2136e}
+.package b{display:block;font-size:18px}
+.package span{color:#e2136e;font-weight:bold}
+label{display:block;margin:15px 0 6px;font-weight:bold}
+input{width:100%;padding:13px;border:1px solid #ccc;border-radius:9px;font-size:16px}
+button{width:100%;border:0;border-radius:10px;padding:14px;margin-top:16px;background:#e2136e;color:#fff;font-size:17px;font-weight:bold}
+.note{font-size:12px;color:#777;line-height:1.5;margin-top:15px;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+<h1>SHIHAB WIFI</h1>
+<div class="speed">⚡ High Speed Internet • 100 Mbps</div>
+
+<div class="bkash">
+<div>💳 Payment Method</div>
+<strong>bKash Send Money</strong><br>
+Send Money to: <strong>01611305943</strong>
+</div>
+
+<h3>Choose Internet Package</h3>
+<div class="packages">
+<div class="package" onclick="selectPackage('4 Hours - ৳10')"><b>4 Hours</b><span>৳10</span></div>
+<div class="package" onclick="selectPackage('8 Hours - ৳20')"><b>8 Hours</b><span>৳20</span></div>
+<div class="package" onclick="selectPackage('12 Hours - ৳25')"><b>12 Hours</b><span>৳25</span></div>
+<div class="package" onclick="selectPackage('24 Hours - ৳36')"><b>24 Hours</b><span>৳36</span></div>
+<div class="package" onclick="selectPackage('7 Days - ৳120')"><b>7 Days</b><span>৳120</span></div>
+<div class="package" onclick="selectPackage('1 Month - ৳400')"><b>1 Month</b><span>৳400</span></div>
+</div>
+
+<label>Selected Package</label>
+<input id="pkg" placeholder="Select a package above" readonly>
+
+<label>bKash Transaction ID</label>
+<input id="trx" placeholder="Enter Transaction ID">
+
+<button onclick="submitPayment()">Submit Payment Details</button>
+
+<div class="note">
+প্রথমে নির্বাচিত প্যাকেজের টাকা <b>Send Money</b> করুন
+01611305943 নম্বরে। তারপর Transaction ID এখানে দিন।<br>
+Payment verification সফল হলে Internet access দেওয়ার ব্যবস্থা করতে হবে।
+</div>
+</div>
+</div>
+
+<script>
+function selectPackage(p){document.getElementById('pkg').value=p}
+function submitPayment(){
+ const p=document.getElementById('pkg').value;
+ const t=document.getElementById('trx').value.trim();
+ if(!p){alert('Please select a package.');return}
+ if(!t){alert('Please enter your bKash Transaction ID.');return}
+ alert('Payment details submitted. Verification is required before Internet access is activated.');
+}
+</script>
+</body>
+</html>
